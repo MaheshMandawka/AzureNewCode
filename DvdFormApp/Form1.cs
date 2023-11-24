@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DvdFormApp
@@ -22,6 +16,18 @@ namespace DvdFormApp
             if (!string.IsNullOrWhiteSpace(txtName.Text) && !lstNames.Items.Contains(txtName.Text))
             {
                 lstNames.Items.Add(txtName.Text);
+            }
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            var dbContext = new MediaContext();
+
+            var nameToAdd = dbContext.Items.FirstOrDefault(x => x.Id == 1)?.Name;
+
+            if (!string.IsNullOrWhiteSpace(nameToAdd) && !lstNames.Items.Contains(nameToAdd))
+            {
+                lstNames.Items.Add(nameToAdd);
             }
         }
     }

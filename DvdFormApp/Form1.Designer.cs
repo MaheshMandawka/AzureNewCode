@@ -32,6 +32,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.lstNames = new System.Windows.Forms.ListBox();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.btnLoad = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -69,11 +70,22 @@
             this.txtName.Size = new System.Drawing.Size(100, 22);
             this.txtName.TabIndex = 3;
             // 
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(138, 84);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(100, 27);
+            this.btnLoad.TabIndex = 4;
+            this.btnLoad.Text = "Load Existing";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(250, 133);
+            this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lstNames);
             this.Controls.Add(this.btnAdd);
@@ -91,6 +103,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ListBox lstNames;
         private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Button btnLoad;
     }
 }
 
