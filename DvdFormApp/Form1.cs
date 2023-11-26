@@ -39,52 +39,51 @@ namespace DvdFormApp
 
             activeBookshelf1Lookup.Items.AddRange(bookshelves);
             activeBookshelf2Lookup.Items.AddRange(bookshelves);
-
         }
 
         #region Transfer Item Controls
         private void btnTransferOneToTwo_Click(object sender, EventArgs e)
         {
-
+            // TODO
         }
 
         private void btnTransferTwoToOne_Click(object sender, EventArgs e)
         {
-
+            // TODO
         }
         #endregion
 
         #region Bookshelf 1 Controls
         private void btnRemoveItemBookshelf1_Click(object sender, EventArgs e)
         {
-
+            // TODO
         }
 
         private void btnEditSelectedBookshelf1_Click(object sender, EventArgs e)
         {
-
+            // TODO
         }
 
         private void btnDeleteSelectedBookshelf1_Click(object sender, EventArgs e)
         {
-
+            // TODO
         }
         #endregion
 
         #region Bookshelf 2 Controls
         private void btnRemoveItemBookshelf2_Click(object sender, EventArgs e)
         {
-
+            // TODO
         }
 
         private void btnEditSelectedBookshelf2_Click(object sender, EventArgs e)
         {
-
+            // TODO
         }
 
         private void btnDeleteSelectedBookshelf2_Click(object sender, EventArgs e)
         {
-
+            // TODO
         }
         #endregion
 
@@ -163,6 +162,7 @@ namespace DvdFormApp
             }
 
             // Perform Save Item
+            // TODO
         }
 
         private void btnCancelItem_Click(object sender, EventArgs e)
@@ -237,12 +237,12 @@ namespace DvdFormApp
 
         private void btnSaveBookshelf_Click(object sender, EventArgs e)
         {
-
+            // Need to have hidden value for which bookshelf was input
         }
 
         private void btnCancelBookshelf_Click(object sender, EventArgs e)
         {
-
+            editBookshelfTitleValue.Clear();
         }
         #endregion
 
