@@ -113,22 +113,26 @@ namespace DvdFormApp.Repositories
             }
         }
 
-        public Item UpdateItem(ItemDto itemDto)
+        public Item UpdateItem(ItemDto itemDto, int id)
         {
             try
             {
-                var itemToUpdate = _mediaContext.Items.FirstOrDefault(x => x.Id == itemDto.Id);
+                var itemToUpdate = _mediaContext.Items.FirstOrDefault(x => x.Id == id);
 
                 if (itemToUpdate == null)
                 {
                     // Failed to find any elements
                     return null;
                 }
+                var parsed = DateTime.TryParse(itemDto.Date, out var parsedDate);
 
                 itemToUpdate.Name = itemDto.Title;
                 itemToUpdate.Description = itemDto.Description;
                 itemToUpdate.Type = itemDto.Type;
-                itemToUpdate.Date = itemDto.Date;
+                if (parsed)
+                {
+                    itemToUpdate.Date = parsedDate;
+                }
                 var result = _mediaContext.Update(itemToUpdate);
                 _mediaContext.SaveChanges();
                 return result.Entity;

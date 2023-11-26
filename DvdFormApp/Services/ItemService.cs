@@ -49,9 +49,9 @@ namespace DvdFormApp.Services
             return _itemRepository.GetItems().Where(x => x.BookshelfId == bookshelfId);
         }
 
-        public Item UpdateItem(ItemDto itemDto)
+        public Item UpdateItem(ItemDto itemDto, int id)
         {
-            return _itemRepository.UpdateItem(itemDto);
+            return _itemRepository.UpdateItem(itemDto, id);
         }
     }
 }

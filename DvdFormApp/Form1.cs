@@ -143,7 +143,38 @@ namespace DvdFormApp
 
         private void btnDeleteSelectedBookshelf1_Click(object sender, EventArgs e)
         {
-            // TODO
+            var selectedItem = activeBookshelf1Lookup.SelectedItem;
+
+            if (selectedItem == null || (selectedItem as Bookshelf) == null)
+            {
+                return;
+            }
+
+            var result = _bookshelfService.DeleteBookshelf((selectedItem as Bookshelf).Id);
+
+            if (result)
+            {
+                // Success: Update values
+                activeBookshelf1Lookup.Items.Remove(selectedItem);
+                activeBookshelf1.Items.Clear();
+
+                var selectedItem2 = activeBookshelf2Lookup.SelectedItem;
+
+                if (selectedItem2 == null || (selectedItem2 as Bookshelf) == null)
+                {
+                    return;
+                }
+
+                if ((selectedItem as Bookshelf).Id == (selectedItem as Bookshelf).Id)
+                {
+                    activeBookshelf2Lookup.Items.Remove(selectedItem);
+                    activeBookshelf2.Items.Clear();
+                }
+            }
+            else
+            {
+                // Failure: alert user
+            }
         }
         #endregion
 
@@ -169,7 +200,38 @@ namespace DvdFormApp
 
         private void btnDeleteSelectedBookshelf2_Click(object sender, EventArgs e)
         {
-            // TODO
+            var selectedItem = activeBookshelf2Lookup.SelectedItem;
+
+            if (selectedItem == null || (selectedItem as Bookshelf) == null)
+            {
+                return;
+            }
+
+            var result = _bookshelfService.DeleteBookshelf((selectedItem as Bookshelf).Id);
+
+            if (result)
+            {
+                // Success: Update values
+                activeBookshelf2Lookup.Items.Remove(selectedItem);
+                activeBookshelf2.Items.Clear();
+
+                var selectedItem2 = activeBookshelf1Lookup.SelectedItem;
+
+                if (selectedItem2 == null || (selectedItem2 as Bookshelf) == null)
+                {
+                    return;
+                }
+
+                if ((selectedItem as Bookshelf).Id == (selectedItem as Bookshelf).Id)
+                {
+                    activeBookshelf1Lookup.Items.Remove(selectedItem);
+                    activeBookshelf1.Items.Clear();
+                }
+            }
+            else
+            {
+                // Failure: alert user
+            }
         }
 
         private void DeleteItemBasedOnSelectedItem(object selectedItem)
@@ -289,11 +351,33 @@ namespace DvdFormApp
             }
 
             // Perform Save Item
-            // TODO use hidden values
-            var result = _itemService.UpdateItem(itemDto);
+            if (string.IsNullOrWhiteSpace(editItemDataHidden.Text))
+            {
+                return;
+            }
+
+            (var itemId, var shouldUpdate1, var shouldUpdate2) = DecodeTemporaryItemStorageKey(editItemDataHidden.Text);
+
+            if (itemId == null || shouldUpdate1 == null || shouldUpdate2 == null || int.TryParse(itemId, out var id))
+            {
+                return;
+            }
+
+            var result = _itemService.UpdateItem(itemDto, id);
 
             if (result != null) {
-                // Success: update values
+                clearEditItemForm();
+                // Since we can't effectively decide what to remove/add, we should clear the results
+                itemLookup.Items.Clear();
+                // TODO Refresh data since this doesn't work
+                if (shouldUpdate1 == "1")
+                {
+                    activeBookshelf1.Items.Add(result);
+                }
+                if (shouldUpdate2 == "1")
+                {
+                    activeBookshelf2.Items.Add(result);
+                }
             }
             else
             {
@@ -400,7 +484,7 @@ namespace DvdFormApp
             if (result != null)
             {
                 // Success: Update values
-                // TODO
+                // TODO: Refresh all data for bookshelves (clear multiple related sections)
             }
             else
             {

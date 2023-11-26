@@ -30,5 +30,10 @@ namespace DvdFormApp.Services
         {
             return _bookshelfRepository.UpdateBookshelf(bookshelfDto);
         }
+
+        public bool DeleteBookshelf(int id)
+        {
+            return _bookshelfRepository.DeleteBookshelf(id);
+        }
     }
 }
