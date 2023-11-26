@@ -130,7 +130,15 @@ namespace DvdFormApp
 
         private void btnEditSelectedBookshelf1_Click(object sender, EventArgs e)
         {
-            // TODO
+            var selectedItem = activeBookshelf1Lookup.SelectedItem;
+
+            if (selectedItem == null || (selectedItem as Bookshelf) == null)
+            {
+                return;
+            }
+
+            editBookshelfDataHidden.Text = GenerateTemporaryBookshelfStorageKey((selectedItem as Bookshelf).Id, 1);
+            editBookshelfTitleValue.Text = (selectedItem as Bookshelf).Name;
         }
 
         private void btnDeleteSelectedBookshelf1_Click(object sender, EventArgs e)
@@ -148,7 +156,15 @@ namespace DvdFormApp
 
         private void btnEditSelectedBookshelf2_Click(object sender, EventArgs e)
         {
-            // TODO
+            var selectedItem = activeBookshelf2Lookup.SelectedItem;
+
+            if (selectedItem == null || (selectedItem as Bookshelf) == null)
+            {
+                return;
+            }
+
+            editBookshelfDataHidden.Text = GenerateTemporaryBookshelfStorageKey((selectedItem as Bookshelf).Id, 2);
+            editBookshelfTitleValue.Text = (selectedItem as Bookshelf).Name;
         }
 
         private void btnDeleteSelectedBookshelf2_Click(object sender, EventArgs e)
@@ -178,6 +194,23 @@ namespace DvdFormApp
                 // Failure: Notify user
                 return;
             }
+        }
+
+        private string GenerateTemporaryBookshelfStorageKey(int bookshelfId, int activeBookshelfNumber)
+        {
+            return bookshelfId + "_" + activeBookshelfNumber;
+        }
+
+        private (string, string) DecodeTemporaryBookshelfStorageKey(string encodedString)
+        {
+            var split = encodedString.Split('_');
+
+            if (split.Length != 2)
+            {
+                return (null, null);
+            }
+
+            return (split[0], split[1]);
         }
         #endregion
 
@@ -282,6 +315,7 @@ namespace DvdFormApp
             editItemDescriptionValue.Clear();
             editItemTypeValue.ResetText();
             editItemDateValue.ResetText();
+            editItemDataHidden.Clear();
         }
 
         private bool validateItemDto(ItemDto itemDto, bool shouldAddBookshelfId)
@@ -337,6 +371,7 @@ namespace DvdFormApp
         private void btnCancelBookshelf_Click(object sender, EventArgs e)
         {
             editBookshelfTitleValue.Clear();
+            editBookshelfDataHidden.Clear();
         }
         #endregion
 
@@ -469,5 +504,57 @@ namespace DvdFormApp
             }
         }
         #endregion
+
+        private void btnEditItem_Click(object sender, EventArgs e)
+        {
+            var selectedItem = itemLookup.SelectedItem;
+
+            if (selectedItem == null || (selectedItem as Item) == null)
+            {
+                return;
+            }
+
+            var item = selectedItem as Item;
+
+            bool shouldUpdate1 = false;
+            bool shouldUpdate2 = false;
+            if (item.BookshelfId != null)
+            {
+                var bookshelf1 = activeBookshelf1Lookup.SelectedItem;
+                var bookshelf2 = activeBookshelf2Lookup.SelectedItem;
+
+                if (bookshelf1 != null && (bookshelf1 as Bookshelf) != null && (bookshelf1 as Bookshelf).Id == item.BookshelfId)
+                {
+                    shouldUpdate1 = true;
+                }
+                if (bookshelf2 != null && (bookshelf2 as Bookshelf) != null && (bookshelf2 as Bookshelf).Id == item.BookshelfId)
+                {
+                    shouldUpdate2 = true;
+                }
+            }
+
+            editItemDataHidden.Text = GenerateTemporaryItemStorageKey(item.Id, shouldUpdate1, shouldUpdate2);
+            editItemTitleValue.Text = item.Name;
+            editItemDescriptionValue.Text = item.Description;
+            editItemTypeValue.Text = item.Type;
+            editItemDateValue.Value = item.Date ?? DateTime.Now;
+        }
+
+        private string GenerateTemporaryItemStorageKey(int itemId, bool shouldUpdate1, bool shouldUpdate2)
+        {
+            return itemId + "_" + (shouldUpdate1 ? "1" : "0") + "_" + (shouldUpdate2 ? "1" : "0");
+        }
+
+        private (string, string, string) DecodeTemporaryItemStorageKey(string encodedString)
+        {
+            var split = encodedString.Split('_');
+
+            if (split.Length != 3)
+            {
+                return (null, null, null);
+            }
+
+            return (split[0], split[1], split[2]);
+        }
     }
 }

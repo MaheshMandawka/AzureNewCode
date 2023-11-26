@@ -92,7 +92,6 @@ namespace DvdFormApp.Repositories
 
         public bool DeleteItem(int id)
         {
-            // TODO
             try
             {
                 var itemToDelete = _mediaContext.Items.FirstOrDefault(x => x.Id == id);

@@ -82,6 +82,9 @@
             this.btnRemoveItemBookshelf2 = new System.Windows.Forms.Button();
             this.btnAddBookshelf1 = new System.Windows.Forms.Button();
             this.btnAddBookshelf2 = new System.Windows.Forms.Button();
+            this.editBookshelfDataHidden = new System.Windows.Forms.TextBox();
+            this.editItemDataHidden = new System.Windows.Forms.TextBox();
+            this.btnEditItem = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // activeBookshelf1
@@ -530,7 +533,7 @@
             // 
             // btnDeleteItem
             // 
-            this.btnDeleteItem.Location = new System.Drawing.Point(684, 458);
+            this.btnDeleteItem.Location = new System.Drawing.Point(684, 481);
             this.btnDeleteItem.Name = "btnDeleteItem";
             this.btnDeleteItem.Size = new System.Drawing.Size(138, 23);
             this.btnDeleteItem.TabIndex = 60;
@@ -578,11 +581,40 @@
             this.btnAddBookshelf2.UseVisualStyleBackColor = true;
             this.btnAddBookshelf2.Click += new System.EventHandler(this.btnAddBookshelf2_Click);
             // 
+            // editBookshelfDataHidden
+            // 
+            this.editBookshelfDataHidden.Location = new System.Drawing.Point(405, 458);
+            this.editBookshelfDataHidden.Name = "editBookshelfDataHidden";
+            this.editBookshelfDataHidden.Size = new System.Drawing.Size(100, 22);
+            this.editBookshelfDataHidden.TabIndex = 65;
+            this.editBookshelfDataHidden.Visible = false;
+            // 
+            // editItemDataHidden
+            // 
+            this.editItemDataHidden.Location = new System.Drawing.Point(405, 325);
+            this.editItemDataHidden.Name = "editItemDataHidden";
+            this.editItemDataHidden.Size = new System.Drawing.Size(100, 22);
+            this.editItemDataHidden.TabIndex = 66;
+            this.editItemDataHidden.Visible = false;
+            // 
+            // btnEditItem
+            // 
+            this.btnEditItem.Location = new System.Drawing.Point(684, 455);
+            this.btnEditItem.Name = "btnEditItem";
+            this.btnEditItem.Size = new System.Drawing.Size(138, 23);
+            this.btnEditItem.TabIndex = 67;
+            this.btnEditItem.Text = "Edit Item";
+            this.btnEditItem.UseVisualStyleBackColor = true;
+            this.btnEditItem.Click += new System.EventHandler(this.btnEditItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 537);
+            this.Controls.Add(this.btnEditItem);
+            this.Controls.Add(this.editItemDataHidden);
+            this.Controls.Add(this.editBookshelfDataHidden);
             this.Controls.Add(this.btnAddBookshelf2);
             this.Controls.Add(this.btnAddBookshelf1);
             this.Controls.Add(this.btnRemoveItemBookshelf2);
@@ -699,6 +731,9 @@
         private System.Windows.Forms.Button btnRemoveItemBookshelf2;
         private System.Windows.Forms.Button btnAddBookshelf1;
         private System.Windows.Forms.Button btnAddBookshelf2;
+        private System.Windows.Forms.TextBox editBookshelfDataHidden;
+        private System.Windows.Forms.TextBox editItemDataHidden;
+        private System.Windows.Forms.Button btnEditItem;
     }
 }
 
