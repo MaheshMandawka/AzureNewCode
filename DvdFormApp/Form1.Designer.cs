@@ -169,6 +169,7 @@
             this.btnSaveItem.TabIndex = 15;
             this.btnSaveItem.Text = "Save";
             this.btnSaveItem.UseVisualStyleBackColor = true;
+            this.btnSaveItem.Click += new System.EventHandler(this.btnSaveItem_Click);
             // 
             // btnAddBookshelf
             // 
@@ -178,6 +179,7 @@
             this.btnAddBookshelf.TabIndex = 22;
             this.btnAddBookshelf.Text = "Add Bookshelf";
             this.btnAddBookshelf.UseVisualStyleBackColor = true;
+            this.btnAddBookshelf.Click += new System.EventHandler(this.btnAddBookshelf_Click);
             // 
             // addBookshelfTitleLabel
             // 
@@ -221,6 +223,7 @@
             this.btnKeywordLookup.TabIndex = 25;
             this.btnKeywordLookup.Text = "Lookup";
             this.btnKeywordLookup.UseVisualStyleBackColor = true;
+            this.btnKeywordLookup.Click += new System.EventHandler(this.btnKeywordLookup_Click);
             // 
             // keywordLookupValue
             // 
@@ -237,6 +240,7 @@
             this.btnTransferOneToTwo.TabIndex = 27;
             this.btnTransferOneToTwo.Text = ">";
             this.btnTransferOneToTwo.UseVisualStyleBackColor = true;
+            this.btnTransferOneToTwo.Click += new System.EventHandler(this.btnTransferOneToTwo_Click);
             // 
             // btnTransferTwoToOne
             // 
@@ -246,6 +250,7 @@
             this.btnTransferTwoToOne.TabIndex = 28;
             this.btnTransferTwoToOne.Text = "<";
             this.btnTransferTwoToOne.UseVisualStyleBackColor = true;
+            this.btnTransferTwoToOne.Click += new System.EventHandler(this.btnTransferTwoToOne_Click);
             // 
             // btnEditSelectedBookshelf1
             // 
@@ -255,6 +260,7 @@
             this.btnEditSelectedBookshelf1.TabIndex = 29;
             this.btnEditSelectedBookshelf1.Text = "Edit Selected";
             this.btnEditSelectedBookshelf1.UseVisualStyleBackColor = true;
+            this.btnEditSelectedBookshelf1.Click += new System.EventHandler(this.btnEditSelectedBookshelf1_Click);
             // 
             // btnEditSelectedBookshelf2
             // 
@@ -264,6 +270,7 @@
             this.btnEditSelectedBookshelf2.TabIndex = 30;
             this.btnEditSelectedBookshelf2.Text = "Edit Selected";
             this.btnEditSelectedBookshelf2.UseVisualStyleBackColor = true;
+            this.btnEditSelectedBookshelf2.Click += new System.EventHandler(this.btnEditSelectedBookshelf2_Click);
             // 
             // btnDeleteSelectedBookshelf1
             // 
@@ -273,6 +280,7 @@
             this.btnDeleteSelectedBookshelf1.TabIndex = 31;
             this.btnDeleteSelectedBookshelf1.Text = "Delete Selected";
             this.btnDeleteSelectedBookshelf1.UseVisualStyleBackColor = true;
+            this.btnDeleteSelectedBookshelf1.Click += new System.EventHandler(this.btnDeleteSelectedBookshelf1_Click);
             // 
             // btnDeleteSelectedBookshelf2
             // 
@@ -282,6 +290,7 @@
             this.btnDeleteSelectedBookshelf2.TabIndex = 32;
             this.btnDeleteSelectedBookshelf2.Text = "Delete Selected";
             this.btnDeleteSelectedBookshelf2.UseVisualStyleBackColor = true;
+            this.btnDeleteSelectedBookshelf2.Click += new System.EventHandler(this.btnDeleteSelectedBookshelf2_Click);
             // 
             // itemDescriptionLabel
             // 
@@ -319,6 +328,7 @@
             this.btnCancelItem.TabIndex = 37;
             this.btnCancelItem.Text = "Cancel";
             this.btnCancelItem.UseVisualStyleBackColor = true;
+            this.btnCancelItem.Click += new System.EventHandler(this.btnCancelItem_Click);
             // 
             // editItemDateLabel
             // 
@@ -468,6 +478,7 @@
             this.btnSaveBookshelf.TabIndex = 56;
             this.btnSaveBookshelf.Text = "Save";
             this.btnSaveBookshelf.UseVisualStyleBackColor = true;
+            this.btnSaveBookshelf.Click += new System.EventHandler(this.btnSaveBookshelf_Click);
             // 
             // editBookshelfTitleLabel
             // 
@@ -493,6 +504,7 @@
             this.btnCancelBookshelf.TabIndex = 57;
             this.btnCancelBookshelf.Text = "Cancel";
             this.btnCancelBookshelf.UseVisualStyleBackColor = true;
+            this.btnCancelBookshelf.Click += new System.EventHandler(this.btnCancelBookshelf_Click);
             // 
             // addBookshelfGroupLabel
             // 
@@ -520,6 +532,7 @@
             this.button1.TabIndex = 60;
             this.button1.Text = "Delete Item";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnRemoveItemBookshelf1
             // 
@@ -529,6 +542,7 @@
             this.btnRemoveItemBookshelf1.TabIndex = 61;
             this.btnRemoveItemBookshelf1.Text = "Remove Item";
             this.btnRemoveItemBookshelf1.UseVisualStyleBackColor = true;
+            this.btnRemoveItemBookshelf1.Click += new System.EventHandler(this.btnRemoveItemBookshelf1_Click);
             // 
             // btnRemoveItemBookshelf2
             // 
@@ -538,6 +552,7 @@
             this.btnRemoveItemBookshelf2.TabIndex = 62;
             this.btnRemoveItemBookshelf2.Text = "Remove Item";
             this.btnRemoveItemBookshelf2.UseVisualStyleBackColor = true;
+            this.btnRemoveItemBookshelf2.Click += new System.EventHandler(this.btnRemoveItemBookshelf2_Click);
             // 
             // btnAddBookshelf1
             // 
@@ -547,6 +562,7 @@
             this.btnAddBookshelf1.TabIndex = 63;
             this.btnAddBookshelf1.Text = "Add Bookshelf 1";
             this.btnAddBookshelf1.UseVisualStyleBackColor = true;
+            this.btnAddBookshelf1.Click += new System.EventHandler(this.btnAddBookshelf1_Click);
             // 
             // btnAddBookshelf2
             // 
@@ -556,6 +572,7 @@
             this.btnAddBookshelf2.TabIndex = 64;
             this.btnAddBookshelf2.Text = "Add Bookshelf 2";
             this.btnAddBookshelf2.UseVisualStyleBackColor = true;
+            this.btnAddBookshelf2.Click += new System.EventHandler(this.btnAddBookshelf2_Click);
             // 
             // Form1
             // 
