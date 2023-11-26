@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DvdFormApp.Services;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -6,9 +7,21 @@ namespace DvdFormApp
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private IItemService _itemService;
+
+        public Form1(IItemService itemService)
         {
             InitializeComponent();
+            _itemService = itemService;
+        }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+        }
+
+        private void btnAddLibraryItem_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -398,6 +398,7 @@
             this.btnAddLibraryItem.TabIndex = 47;
             this.btnAddLibraryItem.Text = "Add Item to Library";
             this.btnAddLibraryItem.UseVisualStyleBackColor = true;
+            this.btnAddLibraryItem.Click += new System.EventHandler(this.btnAddLibraryItem_Click);
             // 
             // addItemTypeLabel
             // 

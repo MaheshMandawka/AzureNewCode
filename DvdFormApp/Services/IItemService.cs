@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 
-namespace DvdFormApp.Repositories
+namespace DvdFormApp.Services
 {
-    public interface IItemRepository
+    public interface IItemService
     {
         IQueryable<Item> GetItems();
     }

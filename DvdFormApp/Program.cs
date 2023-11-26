@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DvdFormApp.Repositories;
+using DvdFormApp.Services;
+using System;
 using System.Windows.Forms;
 
 namespace DvdFormApp
@@ -14,7 +16,12 @@ namespace DvdFormApp
             Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            var dbContext = new MediaContext();
+            dbContext.Database.EnsureCreated();
+            var itemRepository = new ItemRepository(dbContext);
+            var itemService = new ItemService(itemRepository);
+            Application.Run(new Form1(itemService));
         }
     }
 }
