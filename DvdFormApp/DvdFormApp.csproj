@@ -192,6 +192,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\DataConstants.cs" />
+    <Compile Include="DataTransferObjects\BookshelfDto.cs" />
+    <Compile Include="DataTransferObjects\ItemDto.cs" />
     <Compile Include="Data\MediaContext.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -248,7 +250,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="DataTransferObjects\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8.1">

@@ -1,4 +1,5 @@
-﻿using DvdFormApp.Repositories;
+﻿using DvdFormApp.DataTransferObjects;
+using DvdFormApp.Repositories;
 using System.Linq;
 
 namespace DvdFormApp.Services
@@ -15,6 +16,21 @@ namespace DvdFormApp.Services
         public IQueryable<Item> GetItems()
         {
             return _itemRepository.GetItems();
+        }
+
+        public IQueryable<Item> GetItemsByKeyword(string keyword)
+        {
+            return _itemRepository.GetItems().Where(x => !string.IsNullOrWhiteSpace(x.Description) && x.Description.Contains(keyword));
+        }
+
+        public Item CreateLibraryItem(ItemDto itemDto)
+        {
+            return _itemRepository.CreateLibraryItem(itemDto);
+        }
+
+        public Item CreateBookshelfItem(ItemDto itemDto)
+        {
+            return _itemRepository.CreateBookshelfItem(itemDto);
         }
     }
 }

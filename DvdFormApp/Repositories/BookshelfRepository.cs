@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using DvdFormApp.DataTransferObjects;
+using System.Linq;
 
 namespace DvdFormApp.Repositories
 {
@@ -14,6 +15,11 @@ namespace DvdFormApp.Repositories
         public IQueryable<Bookshelf> GetBookshelves()
         {
             return _mediaContext.Bookshelves.AsQueryable();
+        }
+
+        public Bookshelf CreateBookshelf(BookshelfDto bookshelfDto)
+        {
+            return null;
         }
     }
 }
