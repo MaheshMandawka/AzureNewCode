@@ -57,27 +57,7 @@ namespace DvdFormApp
         private void btnRemoveItemBookshelf1_Click(object sender, EventArgs e)
         {
             var selectedItem = activeBookshelf1.SelectedItem;
-
-            if (selectedItem == null || (selectedItem as Item) == null)
-            {
-                return;
-            }
-
-            var result = _itemService.DeleteItem((selectedItem as Item).Id);
-
-            if (result)
-            {
-                // Success: Remove from all possible areas
-                itemLookup.Items.Remove(selectedItem);
-                activeBookshelf1.Items.Remove(selectedItem);
-                activeBookshelf2.Items.Remove(selectedItem);
-                return;
-            }
-            else
-            {
-                // Failure: Notify user
-                return;
-            }
+            DeleteItemBasedOnSelectedItem(selectedItem);
         }
 
         private void btnEditSelectedBookshelf1_Click(object sender, EventArgs e)
@@ -95,7 +75,21 @@ namespace DvdFormApp
         private void btnRemoveItemBookshelf2_Click(object sender, EventArgs e)
         {
             var selectedItem = activeBookshelf2.SelectedItem;
+            DeleteItemBasedOnSelectedItem(selectedItem);
+        }
 
+        private void btnEditSelectedBookshelf2_Click(object sender, EventArgs e)
+        {
+            // TODO
+        }
+
+        private void btnDeleteSelectedBookshelf2_Click(object sender, EventArgs e)
+        {
+            // TODO
+        }
+
+        private void DeleteItemBasedOnSelectedItem(object selectedItem)
+        {
             if (selectedItem == null || (selectedItem as Item) == null)
             {
                 return;
@@ -116,16 +110,6 @@ namespace DvdFormApp
                 // Failure: Notify user
                 return;
             }
-        }
-
-        private void btnEditSelectedBookshelf2_Click(object sender, EventArgs e)
-        {
-            // TODO
-        }
-
-        private void btnDeleteSelectedBookshelf2_Click(object sender, EventArgs e)
-        {
-            // TODO
         }
         #endregion
 
@@ -371,27 +355,7 @@ namespace DvdFormApp
         private void btnDeleteItem_Click(object sender, EventArgs e)
         {
             var selectedItem = itemLookup.SelectedItem;
-
-            if (selectedItem == null || (selectedItem as Item) == null)
-            {
-                return;
-            }
-
-            var result = _itemService.DeleteItem((selectedItem as Item).Id);
-
-            if (result)
-            {
-                // Success: Remove from all possible areas
-                itemLookup.Items.Remove(selectedItem);
-                activeBookshelf1.Items.Remove(selectedItem);
-                activeBookshelf2.Items.Remove(selectedItem);
-                return;
-            }
-            else
-            {
-                // Failure: Notify user
-                return;
-            }
+            DeleteItemBasedOnSelectedItem(selectedItem);
         }
         #endregion
 
