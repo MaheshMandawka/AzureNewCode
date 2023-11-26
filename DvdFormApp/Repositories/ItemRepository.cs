@@ -1,4 +1,5 @@
 ﻿using DvdFormApp.DataTransferObjects;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 
@@ -7,10 +8,12 @@ namespace DvdFormApp.Repositories
     public class ItemRepository : IItemRepository
     {
         private MediaContext _mediaContext;
+        private ILoggerFactory _logger;
 
-        public ItemRepository(MediaContext mediaContext)
+        public ItemRepository(MediaContext mediaContext, ILoggerFactory logger)
         {
             _mediaContext = mediaContext;
+            _logger = logger;
         }
 
         public IQueryable<Item> GetItems()

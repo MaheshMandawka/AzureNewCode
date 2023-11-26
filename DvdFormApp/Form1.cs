@@ -1,7 +1,8 @@
-﻿using DvdFormApp.DataTransferObjects;
+﻿using DvdFormApp.Constants;
+using DvdFormApp.DataTransferObjects;
 using DvdFormApp.Services;
+using Microsoft.Extensions.Logging;
 using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace DvdFormApp
@@ -10,14 +11,18 @@ namespace DvdFormApp
     {
         private IBookshelfService _bookshelfService;
         private IItemService _itemService;
+        private ILoggerFactory _logger;
 
-        public Form1(IBookshelfService bookshelfService, IItemService itemService)
+        public Form1(IBookshelfService bookshelfService, IItemService itemService, ILoggerFactory logger)
         {
             InitializeComponent();
 
             // Initialize Services
             _bookshelfService = bookshelfService;
             _itemService = itemService;
+
+            // Initialize Logging
+            _logger = logger;
         }
 
         protected override void OnLoad(EventArgs e)
@@ -75,6 +80,12 @@ namespace DvdFormApp
         private void btnAddLibraryItem_Click(object sender, EventArgs e)
         {
             var itemDto = getItemDtoFromAddItem(false);
+
+            if (!validateItemDto(itemDto, false))
+            {
+                return;
+            }
+
             var result = _itemService.CreateLibraryItem(itemDto);
 
             if (result != null)
@@ -91,6 +102,12 @@ namespace DvdFormApp
         private void btnAddBookshelfItem_Click(object sender, EventArgs e)
         {
             var itemDto = getItemDtoFromAddItem(true);
+
+            if (!validateItemDto(itemDto, true))
+            {
+                return;
+            }
+
             var result = _itemService.CreateBookshelfItem(itemDto);
 
             if (result != null)
@@ -127,6 +144,12 @@ namespace DvdFormApp
         private void btnSaveItem_Click(object sender, EventArgs e)
         {
             var itemDto = getItemDtoFromEditItem(true);
+
+            if (!validateItemDto(itemDto, true))
+            {
+                return;
+            }
+
             // Perform Save Item
         }
 
@@ -153,6 +176,23 @@ namespace DvdFormApp
             editItemDescriptionValue.Clear();
             editItemTypeValue.ResetText();
             editItemDateValue.ResetText();
+        }
+
+        private bool validateItemDto(ItemDto itemDto, bool shouldAddBookshelfId)
+        {
+            if (itemDto.Title == null ||
+                itemDto.Description == null ||
+                itemDto.Type == null ||
+                !DataConstants.ItemConstants.ItemTypes.Contains(itemDto.Type) ||
+                itemDto.Date == null ||
+                (shouldAddBookshelfId && itemDto.BookshelfId == null))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
         #endregion
 

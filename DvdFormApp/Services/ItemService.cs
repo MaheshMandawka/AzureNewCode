@@ -1,5 +1,6 @@
 ﻿using DvdFormApp.DataTransferObjects;
 using DvdFormApp.Repositories;
+using Microsoft.Extensions.Logging;
 using System.Linq;
 
 namespace DvdFormApp.Services
@@ -7,10 +8,12 @@ namespace DvdFormApp.Services
     public class ItemService : IItemService
     {
         private IItemRepository _itemRepository;
+        private ILoggerFactory _logger;
 
-        public ItemService(IItemRepository itemRepository)
+        public ItemService(IItemRepository itemRepository, ILoggerFactory logger)
         {
             _itemRepository = itemRepository;
+            _logger = logger;
         }
 
         public IQueryable<Item> GetItems()

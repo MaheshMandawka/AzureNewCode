@@ -1,5 +1,6 @@
 ﻿using DvdFormApp.Repositories;
 using DvdFormApp.Services;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Windows.Forms;
 
@@ -22,12 +23,19 @@ namespace DvdFormApp
             dbContext.Database.EnsureCreated();
 
             // Initialize Services and Repositories
-            var bookshelfRepository = new BookshelfRepository(dbContext);
-            var bookshelfService = new BookshelfService(bookshelfRepository);
-            var itemRepository = new ItemRepository(dbContext);
-            var itemService = new ItemService(itemRepository);
+            var logger = LoggerFactory.Create(builder =>
+            {
+                builder.AddFilter("Microsoft", LogLevel.Warning)
+                       .AddFilter("System", LogLevel.Warning)
+                       .AddFilter("DvdFormApp.Program", LogLevel.Debug)
+                       .AddConsole();
+            });
+            var bookshelfRepository = new BookshelfRepository(dbContext, logger);
+            var bookshelfService = new BookshelfService(bookshelfRepository, logger);
+            var itemRepository = new ItemRepository(dbContext, logger);
+            var itemService = new ItemService(itemRepository, logger);
 
-            Application.Run(new Form1(bookshelfService, itemService));
+            Application.Run(new Form1(bookshelfService, itemService, logger));
         }
     }
 }
