@@ -260,16 +260,72 @@ namespace DvdFormApp
 
         private void btnAddBookshelf1_Click(object sender, EventArgs e)
         {
-
+            AssignItemToBookshelfFromLookup(1);
         }
 
         private void btnAddBookshelf2_Click(object sender, EventArgs e)
         {
+            AssignItemToBookshelfFromLookup(2);
+        }
 
+        private void AssignItemToBookshelfFromLookup(int activeBookshelfNumber)
+        {
+            var selectedItem = itemLookup.SelectedItem;
+            object selectedBookshelf = null;
+
+            // Select Active Bookshelf 1 or 2
+            if (activeBookshelfNumber == 1)
+            {
+                selectedBookshelf = activeBookshelf1.SelectedItem;
+            }
+            else if (activeBookshelfNumber == 2)
+            {
+                selectedBookshelf = activeBookshelf1.SelectedItem;
+            }
+
+            // Validation
+            if (selectedItem == null || (selectedItem as Item) == null)
+            {
+                return;
+            }
+
+            if (selectedBookshelf == null || (selectedBookshelf as Bookshelf) == null)
+            {
+                return;
+            }
+
+            // Assignment
+            _itemService.AssignItemToBookshelf(new ItemAssignmentDto
+            {
+                ItemId = (selectedItem as Item).Id,
+                BookshelfId = (selectedBookshelf as Bookshelf).Id,
+            });
         }
 
         private void btnDeleteItem_Click(object sender, EventArgs e)
         {
+            var selectedItem = itemLookup.SelectedItem;
+
+            if (selectedItem == null || (selectedItem as Item) == null)
+            {
+                return;
+            }
+
+            var result = _itemService.DeleteItem((selectedItem as Item).Id);
+
+            if (result)
+            {
+                // Success: Remove from all possible areas
+                itemLookup.Items.Remove(selectedItem);
+                activeBookshelf1.Items.Remove(selectedItem);
+                activeBookshelf2.Items.Remove(selectedItem);
+                return;
+            }
+            else
+            {
+                // Failure: Notify user
+                return;
+            }
         }
         #endregion
     }

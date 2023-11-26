@@ -9,5 +9,7 @@ namespace DvdFormApp.Services
         IQueryable<Item> GetItemsByKeyword(string keyword);
         Item CreateLibraryItem(ItemDto itemDto);
         Item CreateBookshelfItem(ItemDto itemDto);
+        Item AssignItemToBookshelf(ItemAssignmentDto itemDto);
+        bool DeleteItem(int id);
     }
 }

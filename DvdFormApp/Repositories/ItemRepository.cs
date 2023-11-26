@@ -67,5 +67,32 @@ namespace DvdFormApp.Repositories
                 return null;
             }
         }
+        public Item AssignItemToBookshelf(ItemAssignmentDto itemDto)
+        {
+            try
+            {
+                var itemToUpdate = _mediaContext.Items.FirstOrDefault(x => x.Id == itemDto.ItemId);
+
+                if (itemToUpdate == null)
+                {
+                    return null;
+                }
+                
+                itemToUpdate.BookshelfId = itemDto.BookshelfId;
+                var result = _mediaContext.Items.Update(itemToUpdate);
+                _mediaContext.SaveChanges();
+                return result.Entity;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, e.Message);
+                return null;
+            }
+        }
+
+        public bool DeleteItem(int id)
+        {
+            return false;
+        }
     }
 }

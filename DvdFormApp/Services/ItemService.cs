@@ -35,5 +35,14 @@ namespace DvdFormApp.Services
         {
             return _itemRepository.CreateBookshelfItem(itemDto);
         }
+
+        public Item AssignItemToBookshelf(ItemAssignmentDto itemDto)
+        {
+            return _itemRepository.AssignItemToBookshelf(itemDto);
+        }
+        public bool DeleteItem(int id)
+        {
+            return _itemRepository.DeleteItem(id);
+        }
     }
 }
