@@ -121,7 +121,7 @@ namespace DvdFormApp
             addItemTitleValue.Clear();
             addItemDescriptionValue.Clear();
             addItemTypeValue.ResetText();
-            addItemDateValue.Clear();
+            addItemDateValue.ResetText();
         }
 
         private void btnSaveItem_Click(object sender, EventArgs e)
@@ -152,7 +152,7 @@ namespace DvdFormApp
             editItemTitleValue.Clear();
             editItemDescriptionValue.Clear();
             editItemTypeValue.ResetText();
-            editItemDateValue.Clear();
+            editItemDateValue.ResetText();
         }
         #endregion
 

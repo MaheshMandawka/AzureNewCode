@@ -56,11 +56,11 @@
             this.editItemTypeValue = new System.Windows.Forms.ComboBox();
             this.btnCancelItem = new System.Windows.Forms.Button();
             this.editItemDateLabel = new System.Windows.Forms.Label();
-            this.editItemDateValue = new System.Windows.Forms.TextBox();
+            this.editItemDateValue = new System.Windows.Forms.DateTimePicker();
             this.bookshelf1Label = new System.Windows.Forms.Label();
             this.bookshelf2Label = new System.Windows.Forms.Label();
             this.addItemDateLabel = new System.Windows.Forms.Label();
-            this.addItemDateValue = new System.Windows.Forms.TextBox();
+            this.addItemDateValue = new System.Windows.Forms.DateTimePicker();
             this.btnAddBookshelfItem = new System.Windows.Forms.Button();
             this.addItemTypeValue = new System.Windows.Forms.ComboBox();
             this.btnAddLibraryItem = new System.Windows.Forms.Button();
@@ -341,6 +341,7 @@
             // 
             // editItemDateValue
             // 
+            this.editItemDateValue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.editItemDateValue.Location = new System.Drawing.Point(405, 297);
             this.editItemDateValue.Name = "editItemDateValue";
             this.editItemDateValue.Size = new System.Drawing.Size(121, 22);
@@ -375,6 +376,7 @@
             // 
             // addItemDateValue
             // 
+            this.addItemDateValue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.addItemDateValue.Location = new System.Drawing.Point(405, 149);
             this.addItemDateValue.Name = "addItemDateValue";
             this.addItemDateValue.Size = new System.Drawing.Size(121, 22);
@@ -669,11 +671,11 @@
         private System.Windows.Forms.ComboBox editItemTypeValue;
         private System.Windows.Forms.Button btnCancelItem;
         private System.Windows.Forms.Label editItemDateLabel;
-        private System.Windows.Forms.TextBox editItemDateValue;
+        private System.Windows.Forms.DateTimePicker editItemDateValue;
         private System.Windows.Forms.Label bookshelf1Label;
         private System.Windows.Forms.Label bookshelf2Label;
         private System.Windows.Forms.Label addItemDateLabel;
-        private System.Windows.Forms.TextBox addItemDateValue;
+        private System.Windows.Forms.DateTimePicker addItemDateValue;
         private System.Windows.Forms.Button btnAddBookshelfItem;
         private System.Windows.Forms.ComboBox addItemTypeValue;
         private System.Windows.Forms.Button btnAddLibraryItem;
