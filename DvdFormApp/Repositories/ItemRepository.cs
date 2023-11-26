@@ -1,4 +1,5 @@
 ﻿using DvdFormApp.DataTransferObjects;
+using System;
 using System.Linq;
 
 namespace DvdFormApp.Repositories
@@ -19,12 +20,49 @@ namespace DvdFormApp.Repositories
 
         public Item CreateLibraryItem(ItemDto itemDto)
         {
-            return null;
+            try
+            {
+                var result = _mediaContext.Items.Add(new Item
+                {
+                    Name = itemDto.Title,
+                    Description = itemDto.Description,
+                    Type = itemDto.Type,
+                    Date = DateTime.Parse(itemDto.Date),
+                    CreatedAt = DateTime.UtcNow,
+                    LastModified = DateTime.UtcNow,
+                });
+                _mediaContext.SaveChanges();
+                return result.Entity;
+            }
+            catch(Exception e)
+            {
+                Console.Error.WriteLine(e);
+                return null;
+            }
         }
 
         public Item CreateBookshelfItem(ItemDto itemDto)
         {
-            return null;
+            try
+            {
+                var result = _mediaContext.Items.Add(new Item
+                {
+                    Name = itemDto.Title,
+                    Description = itemDto.Description,
+                    Type = itemDto.Type,
+                    Date = DateTime.Parse(itemDto.Date),
+                    CreatedAt = DateTime.UtcNow,
+                    LastModified = DateTime.UtcNow,
+                    BookshelfId = itemDto.BookshelfId,
+                });
+                _mediaContext.SaveChanges();
+                return result.Entity;
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e);
+                return null;
+            }
         }
     }
 }
