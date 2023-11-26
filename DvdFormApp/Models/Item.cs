@@ -10,4 +10,9 @@ public class Item
     public string Description { get; set; }
     public int? BookshelfId { get; set; }
     public string Type { get; set; }
+
+    public override string ToString()
+    {
+        return Type + "-" + Name;
+    }
 }

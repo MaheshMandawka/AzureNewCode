@@ -254,7 +254,7 @@ namespace DvdFormApp
             var matchingItems = _itemService.GetItemsByKeyword(keywordLookupValue.Text);
             foreach(var matchingItem in matchingItems)
             {
-                itemLookup.Items.Add(matchingItem.Type + "-" + matchingItem.Name);
+                itemLookup.Items.Add(matchingItem);
             }
         }
 
