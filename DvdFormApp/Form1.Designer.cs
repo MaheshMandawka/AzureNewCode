@@ -77,7 +77,7 @@
             this.btnCancelBookshelf = new System.Windows.Forms.Button();
             this.addBookshelfGroupLabel = new System.Windows.Forms.Label();
             this.editBookshelfGroupLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDeleteItem = new System.Windows.Forms.Button();
             this.btnRemoveItemBookshelf1 = new System.Windows.Forms.Button();
             this.btnRemoveItemBookshelf2 = new System.Windows.Forms.Button();
             this.btnAddBookshelf1 = new System.Windows.Forms.Button();
@@ -524,15 +524,15 @@
             this.editBookshelfGroupLabel.TabIndex = 59;
             this.editBookshelfGroupLabel.Text = "Edit Bookshelf";
             // 
-            // button1
+            // btnDeleteItem
             // 
-            this.button1.Location = new System.Drawing.Point(684, 458);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 23);
-            this.button1.TabIndex = 60;
-            this.button1.Text = "Delete Item";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnDeleteItem.Location = new System.Drawing.Point(684, 458);
+            this.btnDeleteItem.Name = "btnDeleteItem";
+            this.btnDeleteItem.Size = new System.Drawing.Size(119, 23);
+            this.btnDeleteItem.TabIndex = 60;
+            this.btnDeleteItem.Text = "Delete Item";
+            this.btnDeleteItem.UseVisualStyleBackColor = true;
+            this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
             // 
             // btnRemoveItemBookshelf1
             // 
@@ -583,7 +583,7 @@
             this.Controls.Add(this.btnAddBookshelf1);
             this.Controls.Add(this.btnRemoveItemBookshelf2);
             this.Controls.Add(this.btnRemoveItemBookshelf1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDeleteItem);
             this.Controls.Add(this.editBookshelfGroupLabel);
             this.Controls.Add(this.addBookshelfGroupLabel);
             this.Controls.Add(this.btnCancelBookshelf);
@@ -690,7 +690,7 @@
         private System.Windows.Forms.Button btnCancelBookshelf;
         private System.Windows.Forms.Label addBookshelfGroupLabel;
         private System.Windows.Forms.Label editBookshelfGroupLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDeleteItem;
         private System.Windows.Forms.Button btnRemoveItemBookshelf1;
         private System.Windows.Forms.Button btnRemoveItemBookshelf2;
         private System.Windows.Forms.Button btnAddBookshelf1;

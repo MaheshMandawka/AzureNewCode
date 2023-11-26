@@ -17,6 +17,7 @@ namespace DvdFormApp
             _bookshelfService = bookshelfService;
             _itemService = itemService;
         }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -122,7 +123,7 @@ namespace DvdFormApp
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnDeleteItem_Click(object sender, EventArgs e)
         {
 
         }
