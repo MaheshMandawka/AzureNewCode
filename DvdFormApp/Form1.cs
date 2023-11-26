@@ -44,12 +44,80 @@ namespace DvdFormApp
         #region Transfer Item Controls
         private void btnTransferOneToTwo_Click(object sender, EventArgs e)
         {
-            // TODO
+            var selectedItem = activeBookshelf1.SelectedItem;
+            var currentBookshelf = activeBookshelf1Lookup.SelectedItem;
+            var selectedBookshelf = activeBookshelf2Lookup.SelectedItem;
+
+            if (selectedItem == null || (selectedItem as Item) == null)
+            {
+                return;
+            }
+
+            if (selectedBookshelf == null || (selectedBookshelf as Bookshelf) == null)
+            {
+                return;
+            }
+
+            // If we have the same bookshelf selected on both we do nothing
+            if ((currentBookshelf as Bookshelf).Id == (selectedBookshelf as Bookshelf).Id)
+            {
+                return;
+            }
+
+            var result = _itemService.AssignItemToBookshelf(new ItemAssignmentDto
+            {
+                ItemId = (selectedItem as Item).Id,
+                BookshelfId = (selectedBookshelf as Bookshelf).Id,
+            });
+
+            if (result != null)
+            {
+                activeBookshelf1.Items.Remove(selectedItem);
+                activeBookshelf2.Items.Add(selectedItem);
+            }
+            else
+            {
+                // Failure: notify user
+            }
         }
 
         private void btnTransferTwoToOne_Click(object sender, EventArgs e)
         {
-            // TODO
+            var selectedItem = activeBookshelf2.SelectedItem;
+            var currentBookshelf = activeBookshelf2Lookup.SelectedItem;
+            var selectedBookshelf = activeBookshelf1Lookup.SelectedItem;
+
+            if (selectedItem == null || (selectedItem as Item) == null)
+            {
+                return;
+            }
+
+            if (selectedBookshelf == null || (selectedBookshelf as Bookshelf) == null)
+            {
+                return;
+            }
+
+            // If we have the same bookshelf selected on both we do nothing
+            if ((currentBookshelf as Bookshelf).Id == (selectedBookshelf as Bookshelf).Id)
+            {
+                return;
+            }
+
+            var result = _itemService.AssignItemToBookshelf(new ItemAssignmentDto
+            {
+                ItemId = (selectedItem as Item).Id,
+                BookshelfId = (selectedBookshelf as Bookshelf).Id,
+            });
+
+            if (result != null)
+            {
+                activeBookshelf2.Items.Remove(selectedItem);
+                activeBookshelf1.Items.Add(selectedItem);
+            }
+            else
+            {
+                // Failure: notify user
+            }
         }
         #endregion
 
