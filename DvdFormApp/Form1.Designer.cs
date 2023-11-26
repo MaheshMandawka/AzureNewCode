@@ -110,6 +110,7 @@
             this.activeBookshelf1Lookup.Name = "activeBookshelf1Lookup";
             this.activeBookshelf1Lookup.Size = new System.Drawing.Size(120, 84);
             this.activeBookshelf1Lookup.TabIndex = 7;
+            this.activeBookshelf1Lookup.SelectedIndexChanged += new System.EventHandler(this.activeBookshelf1Lookup_SelectedIndexChanged);
             // 
             // activeBookshelf2Lookup
             // 
@@ -119,6 +120,7 @@
             this.activeBookshelf2Lookup.Name = "activeBookshelf2Lookup";
             this.activeBookshelf2Lookup.Size = new System.Drawing.Size(120, 84);
             this.activeBookshelf2Lookup.TabIndex = 8;
+            this.activeBookshelf2Lookup.SelectedIndexChanged += new System.EventHandler(this.activeBookshelf2Lookup_SelectedIndexChanged);
             // 
             // editItemTitleValue
             // 

@@ -276,11 +276,11 @@ namespace DvdFormApp
             // Select Active Bookshelf 1 or 2
             if (activeBookshelfNumber == 1)
             {
-                selectedBookshelf = activeBookshelf1.SelectedItem;
+                selectedBookshelf = activeBookshelf1Lookup.SelectedItem;
             }
             else if (activeBookshelfNumber == 2)
             {
-                selectedBookshelf = activeBookshelf1.SelectedItem;
+                selectedBookshelf = activeBookshelf1Lookup.SelectedItem;
             }
 
             // Validation
@@ -349,6 +349,49 @@ namespace DvdFormApp
             {
                 // Failure: Notify user
                 return;
+            }
+        }
+        #endregion
+
+        #region Active Bookshelf Lookup
+        private void activeBookshelf1Lookup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectIndexChangeOnActiveBookshelfLookup(1);
+        }
+
+        private void activeBookshelf2Lookup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectIndexChangeOnActiveBookshelfLookup(2);
+        }
+
+        private void SelectIndexChangeOnActiveBookshelfLookup(int activeBookshelfNumber)
+        {
+            object selectedItem = null;
+            if (activeBookshelfNumber == 1)
+            {
+                selectedItem = activeBookshelf1Lookup.SelectedItem;
+            }
+            else if (activeBookshelfNumber == 2)
+            {
+                selectedItem = activeBookshelf2Lookup.SelectedItem;
+            }
+
+            if (selectedItem == null || (selectedItem as Bookshelf) == null)
+            {
+                return;
+            }
+
+            var itemsToAdd = _itemService.GetItemsByBookshelfId((selectedItem as Bookshelf).Id).ToArray();
+            if (activeBookshelfNumber == 1)
+            {
+                activeBookshelf1.Items.Clear();
+                activeBookshelf1.Items.AddRange(itemsToAdd);
+                
+            }
+            else if (activeBookshelfNumber == 2)
+            {
+                activeBookshelf2.Items.Clear();
+                activeBookshelf2.Items.AddRange(itemsToAdd);
             }
         }
         #endregion

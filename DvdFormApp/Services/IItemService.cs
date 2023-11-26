@@ -11,5 +11,6 @@ namespace DvdFormApp.Services
         Item CreateBookshelfItem(ItemDto itemDto);
         Item AssignItemToBookshelf(ItemAssignmentDto itemDto);
         bool DeleteItem(int id);
+        IQueryable<Item> GetItemsByBookshelfId(int bookshelfId);
     }
 }

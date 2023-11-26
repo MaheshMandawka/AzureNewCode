@@ -44,5 +44,9 @@ namespace DvdFormApp.Services
         {
             return _itemRepository.DeleteItem(id);
         }
+        public IQueryable<Item> GetItemsByBookshelfId(int bookshelfId)
+        {
+            return _itemRepository.GetItems().Where(x => x.BookshelfId == bookshelfId);
+        }
     }
 }

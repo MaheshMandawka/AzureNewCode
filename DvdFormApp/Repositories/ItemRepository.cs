@@ -92,7 +92,26 @@ namespace DvdFormApp.Repositories
 
         public bool DeleteItem(int id)
         {
-            return false;
+            // TODO
+            try
+            {
+                var itemToDelete = _mediaContext.Items.FirstOrDefault(x => x.Id == id);
+
+                if (itemToDelete == null)
+                {
+                    // Object not found
+                    return false;
+                }
+
+                _mediaContext.Items.Remove(itemToDelete);
+                _mediaContext.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, e.Message);
+                return false;
+            }
         }
     }
 }
