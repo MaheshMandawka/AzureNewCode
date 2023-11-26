@@ -191,6 +191,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\DataConstants.cs" />
     <Compile Include="Data\MediaContext.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -202,7 +203,12 @@
     <Compile Include="Migrations\20231124033417_InitialMigration.Designer.cs">
       <DependentUpon>20231124033417_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20231126050459_AddBookshelves.cs" />
+    <Compile Include="Migrations\20231126050459_AddBookshelves.designer.cs">
+      <DependentUpon>20231126050459_AddBookshelves.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\MediaContextModelSnapshot.cs" />
+    <Compile Include="Models\Bookshelf.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

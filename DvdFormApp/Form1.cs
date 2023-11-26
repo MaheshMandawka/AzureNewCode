@@ -1,6 +1,5 @@
 ﻿using DvdFormApp.Services;
 using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace DvdFormApp
@@ -22,6 +21,11 @@ namespace DvdFormApp
         private void btnAddLibraryItem_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnAddBookshelfItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

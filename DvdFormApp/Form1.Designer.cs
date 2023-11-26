@@ -231,9 +231,9 @@
             // 
             // btnTransferOneToTwo
             // 
-            this.btnTransferOneToTwo.Location = new System.Drawing.Point(138, 185);
+            this.btnTransferOneToTwo.Location = new System.Drawing.Point(137, 185);
             this.btnTransferOneToTwo.Name = "btnTransferOneToTwo";
-            this.btnTransferOneToTwo.Size = new System.Drawing.Size(17, 35);
+            this.btnTransferOneToTwo.Size = new System.Drawing.Size(18, 35);
             this.btnTransferOneToTwo.TabIndex = 27;
             this.btnTransferOneToTwo.Text = ">";
             this.btnTransferOneToTwo.UseVisualStyleBackColor = true;
@@ -378,6 +378,7 @@
             this.btnAddBookshelfItem.TabIndex = 49;
             this.btnAddBookshelfItem.Text = "Add Item to Bookshelf 1";
             this.btnAddBookshelfItem.UseVisualStyleBackColor = true;
+            this.btnAddBookshelfItem.Click += new System.EventHandler(this.btnAddBookshelfItem_Click);
             // 
             // addItemTypeValue
             // 

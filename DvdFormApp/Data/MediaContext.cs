@@ -3,7 +3,8 @@
 public class MediaContext : DbContext
 {
     public DbSet<Item> Items { get; set; }
-    
+    public DbSet<Bookshelf> Bookshelves { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (optionsBuilder.IsConfigured == false)
