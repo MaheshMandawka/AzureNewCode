@@ -294,12 +294,30 @@ namespace DvdFormApp
                 return;
             }
 
+            // Do nothing when trying to add to existing
+            var originalBookshelfId = (selectedItem as Item).BookshelfId;
+            var updatedBookshelfId = (selectedBookshelf as Bookshelf).Id;
+            if (originalBookshelfId == updatedBookshelfId)
+            {
+                return;
+            }
+
             // Assignment
-            _itemService.AssignItemToBookshelf(new ItemAssignmentDto
+            var result = _itemService.AssignItemToBookshelf(new ItemAssignmentDto
             {
                 ItemId = (selectedItem as Item).Id,
-                BookshelfId = (selectedBookshelf as Bookshelf).Id,
+                BookshelfId = updatedBookshelfId,
             });
+
+            // Update UI
+            if (activeBookshelfNumber == 1)
+            {
+                activeBookshelf1.Items.Add(selectedItem);
+            }
+            else if (activeBookshelfNumber == 2)
+            {
+                activeBookshelf2.Items.Add(selectedItem);
+            }
         }
 
         private void btnDeleteItem_Click(object sender, EventArgs e)
