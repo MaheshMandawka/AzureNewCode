@@ -115,8 +115,29 @@ namespace DvdFormApp.Repositories
 
         public Item UpdateItem(ItemDto itemDto)
         {
-            // TODO
-            return null;
+            try
+            {
+                var itemToUpdate = _mediaContext.Items.FirstOrDefault(x => x.Id == itemDto.Id);
+
+                if (itemToUpdate == null)
+                {
+                    // Failed to find any elements
+                    return null;
+                }
+
+                itemToUpdate.Name = itemDto.Title;
+                itemToUpdate.Description = itemDto.Description;
+                itemToUpdate.Type = itemDto.Type;
+                itemToUpdate.Date = itemDto.Date;
+                var result = _mediaContext.Update(itemToUpdate);
+                _mediaContext.SaveChanges();
+                return result.Entity;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, e.Message);
+                return null;
+            }
         }
     }
 }
