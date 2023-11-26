@@ -56,7 +56,28 @@ namespace DvdFormApp
         #region Bookshelf 1 Controls
         private void btnRemoveItemBookshelf1_Click(object sender, EventArgs e)
         {
-            // TODO
+            var selectedItem = activeBookshelf1.SelectedItem;
+
+            if (selectedItem == null || (selectedItem as Item) == null)
+            {
+                return;
+            }
+
+            var result = _itemService.DeleteItem((selectedItem as Item).Id);
+
+            if (result)
+            {
+                // Success: Remove from all possible areas
+                itemLookup.Items.Remove(selectedItem);
+                activeBookshelf1.Items.Remove(selectedItem);
+                activeBookshelf2.Items.Remove(selectedItem);
+                return;
+            }
+            else
+            {
+                // Failure: Notify user
+                return;
+            }
         }
 
         private void btnEditSelectedBookshelf1_Click(object sender, EventArgs e)
@@ -73,7 +94,28 @@ namespace DvdFormApp
         #region Bookshelf 2 Controls
         private void btnRemoveItemBookshelf2_Click(object sender, EventArgs e)
         {
-            // TODO
+            var selectedItem = activeBookshelf2.SelectedItem;
+
+            if (selectedItem == null || (selectedItem as Item) == null)
+            {
+                return;
+            }
+
+            var result = _itemService.DeleteItem((selectedItem as Item).Id);
+
+            if (result)
+            {
+                // Success: Remove from all possible areas
+                itemLookup.Items.Remove(selectedItem);
+                activeBookshelf1.Items.Remove(selectedItem);
+                activeBookshelf2.Items.Remove(selectedItem);
+                return;
+            }
+            else
+            {
+                // Failure: Notify user
+                return;
+            }
         }
 
         private void btnEditSelectedBookshelf2_Click(object sender, EventArgs e)
