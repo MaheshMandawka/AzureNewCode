@@ -6,11 +6,15 @@ namespace DvdFormApp
 {
     public partial class Form1 : Form
     {
+        private IBookshelfService _bookshelfService;
         private IItemService _itemService;
 
-        public Form1(IItemService itemService)
+        public Form1(IBookshelfService bookshelfService, IItemService itemService)
         {
             InitializeComponent();
+
+            // Initialize Services
+            _bookshelfService = bookshelfService;
             _itemService = itemService;
         }
         protected override void OnLoad(EventArgs e)

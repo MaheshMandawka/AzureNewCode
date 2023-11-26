@@ -17,11 +17,17 @@ namespace DvdFormApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            // Create Database Context
             var dbContext = new MediaContext();
             dbContext.Database.EnsureCreated();
+
+            // Initialize Services and Repositories
+            var bookshelfRepository = new BookshelfRepository(dbContext);
+            var bookshelfService = new BookshelfService(bookshelfRepository);
             var itemRepository = new ItemRepository(dbContext);
             var itemService = new ItemService(itemRepository);
-            Application.Run(new Form1(itemService));
+
+            Application.Run(new Form1(bookshelfService, itemService));
         }
     }
 }
