@@ -8,12 +8,12 @@ namespace DvdFormApp.Services
     public class BookshelfService : IBookshelfService
     {
         private IBookshelfRepository _bookshelfRepository;
-        private ILoggerFactory _logger;
+        private ILogger _logger;
 
         public BookshelfService(IBookshelfRepository bookshelfRepository, ILoggerFactory logger)
         {
             _bookshelfRepository = bookshelfRepository;
-            _logger = logger;
+            _logger = logger.CreateLogger(nameof(BookshelfService));
         }
 
         public IQueryable<Bookshelf> GetBookshelves()

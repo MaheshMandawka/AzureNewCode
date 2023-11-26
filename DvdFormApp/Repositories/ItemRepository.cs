@@ -8,12 +8,12 @@ namespace DvdFormApp.Repositories
     public class ItemRepository : IItemRepository
     {
         private MediaContext _mediaContext;
-        private ILoggerFactory _logger;
+        private ILogger _logger;
 
         public ItemRepository(MediaContext mediaContext, ILoggerFactory logger)
         {
             _mediaContext = mediaContext;
-            _logger = logger;
+            _logger = logger.CreateLogger(nameof(ItemRepository));
         }
 
         public IQueryable<Item> GetItems()
@@ -39,7 +39,7 @@ namespace DvdFormApp.Repositories
             }
             catch(Exception e)
             {
-                Console.Error.WriteLine(e);
+                _logger.LogError(e, e.Message);
                 return null;
             }
         }
@@ -63,7 +63,7 @@ namespace DvdFormApp.Repositories
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e);
+                _logger.LogError(e, e.Message);
                 return null;
             }
         }

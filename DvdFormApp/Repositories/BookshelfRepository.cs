@@ -7,12 +7,12 @@ namespace DvdFormApp.Repositories
     public class BookshelfRepository : IBookshelfRepository
     {
         private MediaContext _mediaContext;
-        private ILoggerFactory _logger;
+        private ILogger _logger;
 
         public BookshelfRepository(MediaContext mediaContext, ILoggerFactory logger)
         {
             _mediaContext = mediaContext;
-            _logger = logger;
+            _logger = logger.CreateLogger(nameof(BookshelfRepository));
         }
 
         public IQueryable<Bookshelf> GetBookshelves()

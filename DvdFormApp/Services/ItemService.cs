@@ -8,12 +8,12 @@ namespace DvdFormApp.Services
     public class ItemService : IItemService
     {
         private IItemRepository _itemRepository;
-        private ILoggerFactory _logger;
+        private ILogger _logger;
 
         public ItemService(IItemRepository itemRepository, ILoggerFactory logger)
         {
             _itemRepository = itemRepository;
-            _logger = logger;
+            _logger = logger.CreateLogger(nameof(ItemService));
         }
 
         public IQueryable<Item> GetItems()

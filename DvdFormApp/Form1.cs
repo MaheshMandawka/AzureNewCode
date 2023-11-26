@@ -11,7 +11,7 @@ namespace DvdFormApp
     {
         private IBookshelfService _bookshelfService;
         private IItemService _itemService;
-        private ILoggerFactory _logger;
+        private ILogger _logger;
 
         public Form1(IBookshelfService bookshelfService, IItemService itemService, ILoggerFactory logger)
         {
@@ -22,7 +22,7 @@ namespace DvdFormApp
             _itemService = itemService;
 
             // Initialize Logging
-            _logger = logger;
+            _logger = logger.CreateLogger(nameof(Form1));
         }
 
         protected override void OnLoad(EventArgs e)
