@@ -1,5 +1,6 @@
 ﻿using DvdFormApp.DataTransferObjects;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Linq;
 
 namespace DvdFormApp.Repositories
@@ -22,7 +23,20 @@ namespace DvdFormApp.Repositories
 
         public Bookshelf CreateBookshelf(BookshelfDto bookshelfDto)
         {
-            return null;
+            try
+            {
+                var result = _mediaContext.Bookshelves.Add(new Bookshelf
+                {
+                    Name = bookshelfDto.Title,
+                });
+                _mediaContext.SaveChanges();
+                return result.Entity;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, e.Message);
+                return null;
+            }
         }
     }
 }

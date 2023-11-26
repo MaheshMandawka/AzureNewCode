@@ -3,6 +3,7 @@ using DvdFormApp.DataTransferObjects;
 using DvdFormApp.Services;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace DvdFormApp
@@ -28,6 +29,17 @@ namespace DvdFormApp
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+
+            SetupBookshelfLookup();
+        }
+
+        private void SetupBookshelfLookup()
+        {
+            var bookshelves = _bookshelfService.GetBookshelves().ToArray();
+
+            activeBookshelf1Lookup.Items.AddRange(bookshelves);
+            activeBookshelf2Lookup.Items.AddRange(bookshelves);
+
         }
 
         #region Transfer Item Controls
@@ -199,7 +211,28 @@ namespace DvdFormApp
         #region Bookshelf Management
         private void btnAddBookshelf_Click(object sender, EventArgs e)
         {
+            var title = addBookshelfTitleValue.Text;
 
+            if (!string.IsNullOrWhiteSpace(title))
+            {
+                var result = _bookshelfService.CreateBookshelf(new BookshelfDto
+                {
+                    Title = title,
+                });
+
+                // On Success Clear values and Update Bookshelf Lookup
+                if (result != null)
+                {
+                    addBookshelfTitleValue.Clear();
+
+                    activeBookshelf1Lookup.Items.Add(result);
+                    activeBookshelf2Lookup.Items.Add(result);
+                }
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void btnSaveBookshelf_Click(object sender, EventArgs e)

@@ -203,7 +203,7 @@
             this.itemLookup.ItemHeight = 16;
             this.itemLookup.Location = new System.Drawing.Point(684, 133);
             this.itemLookup.Name = "itemLookup";
-            this.itemLookup.Size = new System.Drawing.Size(119, 260);
+            this.itemLookup.Size = new System.Drawing.Size(138, 260);
             this.itemLookup.TabIndex = 23;
             // 
             // keywordLookupLabel
@@ -217,9 +217,9 @@
             // 
             // btnKeywordLookup
             // 
-            this.btnKeywordLookup.Location = new System.Drawing.Point(704, 94);
+            this.btnKeywordLookup.Location = new System.Drawing.Point(684, 94);
             this.btnKeywordLookup.Name = "btnKeywordLookup";
-            this.btnKeywordLookup.Size = new System.Drawing.Size(75, 23);
+            this.btnKeywordLookup.Size = new System.Drawing.Size(138, 23);
             this.btnKeywordLookup.TabIndex = 25;
             this.btnKeywordLookup.Text = "Lookup";
             this.btnKeywordLookup.UseVisualStyleBackColor = true;
@@ -227,9 +227,9 @@
             // 
             // keywordLookupValue
             // 
-            this.keywordLookupValue.Location = new System.Drawing.Point(691, 66);
+            this.keywordLookupValue.Location = new System.Drawing.Point(684, 66);
             this.keywordLookupValue.Name = "keywordLookupValue";
-            this.keywordLookupValue.Size = new System.Drawing.Size(100, 22);
+            this.keywordLookupValue.Size = new System.Drawing.Size(138, 22);
             this.keywordLookupValue.TabIndex = 26;
             // 
             // btnTransferOneToTwo
@@ -530,7 +530,7 @@
             // 
             this.btnDeleteItem.Location = new System.Drawing.Point(684, 458);
             this.btnDeleteItem.Name = "btnDeleteItem";
-            this.btnDeleteItem.Size = new System.Drawing.Size(119, 23);
+            this.btnDeleteItem.Size = new System.Drawing.Size(138, 23);
             this.btnDeleteItem.TabIndex = 60;
             this.btnDeleteItem.Text = "Delete Item";
             this.btnDeleteItem.UseVisualStyleBackColor = true;
@@ -560,7 +560,7 @@
             // 
             this.btnAddBookshelf1.Location = new System.Drawing.Point(684, 399);
             this.btnAddBookshelf1.Name = "btnAddBookshelf1";
-            this.btnAddBookshelf1.Size = new System.Drawing.Size(119, 23);
+            this.btnAddBookshelf1.Size = new System.Drawing.Size(138, 23);
             this.btnAddBookshelf1.TabIndex = 63;
             this.btnAddBookshelf1.Text = "Add Bookshelf 1";
             this.btnAddBookshelf1.UseVisualStyleBackColor = true;
@@ -570,7 +570,7 @@
             // 
             this.btnAddBookshelf2.Location = new System.Drawing.Point(684, 429);
             this.btnAddBookshelf2.Name = "btnAddBookshelf2";
-            this.btnAddBookshelf2.Size = new System.Drawing.Size(119, 23);
+            this.btnAddBookshelf2.Size = new System.Drawing.Size(138, 23);
             this.btnAddBookshelf2.TabIndex = 64;
             this.btnAddBookshelf2.Text = "Add Bookshelf 2";
             this.btnAddBookshelf2.UseVisualStyleBackColor = true;
