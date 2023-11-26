@@ -289,7 +289,16 @@ namespace DvdFormApp
             }
 
             // Perform Save Item
-            // TODO
+            // TODO use hidden values
+            var result = _itemService.UpdateItem(itemDto);
+
+            if (result != null) {
+                // Success: update values
+            }
+            else
+            {
+                // Failure: alert user
+            }
         }
 
         private void btnCancelItem_Click(object sender, EventArgs e)
@@ -365,7 +374,38 @@ namespace DvdFormApp
 
         private void btnSaveBookshelf_Click(object sender, EventArgs e)
         {
-            // Need to have hidden value for which bookshelf was input
+            if (string.IsNullOrWhiteSpace(editBookshelfDataHidden.Text) || string.IsNullOrWhiteSpace(editBookshelfTitleValue.Text))
+            {
+                return;
+            }
+
+            (var bookshelfId, var activeBookshelfNumber) = DecodeTemporaryBookshelfStorageKey(editBookshelfDataHidden.Text);
+
+            if (bookshelfId == null || activeBookshelfNumber == null)
+            {
+                return;
+            }
+
+            if (!int.TryParse(bookshelfId, out var id))
+            {
+                return;
+            }
+
+            var result = _bookshelfService.UpdateBookshelf(new BookshelfDto
+            {
+                Id = id,
+                Title = editBookshelfTitleValue.Text,
+            });
+
+            if (result != null)
+            {
+                // Success: Update values
+                // TODO
+            }
+            else
+            {
+                // Failure: alert users
+            }
         }
 
         private void btnCancelBookshelf_Click(object sender, EventArgs e)

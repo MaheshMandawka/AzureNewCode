@@ -7,5 +7,6 @@ namespace DvdFormApp.Repositories
     {
         IQueryable<Bookshelf> GetBookshelves();
         Bookshelf CreateBookshelf(BookshelfDto bookshelfDto);
+        Bookshelf UpdateBookshelf(BookshelfDto bookshelfDto);
     }
 }

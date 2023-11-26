@@ -10,5 +10,6 @@ namespace DvdFormApp.Repositories
         Item CreateBookshelfItem(ItemDto itemDto);
         Item AssignItemToBookshelf(ItemAssignmentDto itemDto);
         bool DeleteItem(int id);
+        Item UpdateItem(ItemDto itemDto);
     }
 }

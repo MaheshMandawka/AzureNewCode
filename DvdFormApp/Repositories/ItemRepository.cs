@@ -112,5 +112,11 @@ namespace DvdFormApp.Repositories
                 return false;
             }
         }
+
+        public Item UpdateItem(ItemDto itemDto)
+        {
+            // TODO
+            return null;
+        }
     }
 }

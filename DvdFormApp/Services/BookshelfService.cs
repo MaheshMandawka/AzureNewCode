@@ -25,5 +25,10 @@ namespace DvdFormApp.Services
         {
             return _bookshelfRepository.CreateBookshelf(bookshelfDto);
         }
+
+        public Bookshelf UpdateBookshelf(BookshelfDto bookshelfDto)
+        {
+            return _bookshelfRepository.UpdateBookshelf(bookshelfDto);
+        }
     }
 }
