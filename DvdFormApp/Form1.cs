@@ -309,6 +309,12 @@ namespace DvdFormApp
                 BookshelfId = updatedBookshelfId,
             });
 
+            if (result == null)
+            {
+                // Notify of failure to assign item
+                return;
+            }
+
             // Update UI
             if (activeBookshelfNumber == 1)
             {
